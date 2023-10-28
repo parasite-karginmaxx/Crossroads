@@ -1,0 +1,149 @@
+﻿<Window x:Class="Crossroads.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crossroads"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000" MaxHeight="600" MaxWidth="1000"
+        Background="White" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ControlTemplate x:Key="TopMenuButtons" TargetType="Button">
+            <Grid Name="Btn" Height="40" Margin="20,0,0,0">
+                <Border>
+                    <Grid>
+                        <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="24"
+                               VerticalAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground" Value="#698AFF"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
+                                                     Value="True">
+                                            <Setter Property="Foreground" Value="Blue"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor, AncestorType={x:Type Button}},
+                                            Path= IsPressed}" Value="True">
+                                            <Setter Property="Foreground" Value="Blue"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor, AncestorType={x:Type Button}},
+                                            Path= IsFocused}" Value="True">
+                                            <Setter Property="Foreground" Value="Blue"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <Label Content="{TemplateBinding Content}" Margin="-3,0,0,0"
+                           Background="Transparent" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground" Value="#698AFF"/>
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor, AncestorType={x:Type Button}},
+                                            Path= IsFocused}" Value="True">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="Effect">
+                                                    <Setter.Value>
+                                                        <BlurEffect Radius="35"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </Grid>
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor, AncestorType={x:Type Button}},
+                                            Path= IsPressed}" Value="True">
+                                    <Setter Property="Margin"  Value="0,2,0,0"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    
+                </Border>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="SlideMenuButtons" TargetType="Button">
+            <Grid Name="Btn" Height="45">
+                <Border>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{DynamicResource ResourceKey=Img}" 
+                               VerticalAlignment="Center" HorizontalAlignment="Left" 
+                               Height="30" Width="30" Stretch="Fill" Margin="20,0,0,0"/>
+                        <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="24"
+                               VerticalAlignment="Center" Margin="10,0,0,0">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground" Value="#698AFF"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
+                                                     Value="True">
+                                            <Setter Property="Foreground" Value="Blue"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor, AncestorType={x:Type Button}},
+                                            Path= IsFocused}" Value="True">
+                                            <Setter Property="Foreground" Value="Blue"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
+            <Border BorderThickness="1" BorderBrush="#698AFF" Background="Transparent">
+                <StackPanel Orientation="Horizontal">
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Главная"/>
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Клиенты"/>
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Номера"/>
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Сотрудники"/>
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Поддержка"/>
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Профиль"/>
+                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="Выход"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid Name="SlideMenu" Grid.Column="0" Grid.Row="1">
+            <Border BorderThickness="1,0,1,1" BorderBrush="#698AFF"/>
+            <Border BorderThickness="0" Background="White" Opacity="0.5"/>
+            <StackPanel Orientation="Vertical">
+                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="Главная">
+                    <Button.Resources>
+                        <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
+                    </Button.Resources>
+                </Button>
+                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="Главная">
+                    <Button.Resources>
+                        <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
