@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 
-namespace Crossroads
+namespace Crossroads.View
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -11,5 +13,12 @@ namespace Crossroads
         {
             InitializeComponent();
         }
+
+        private void BorderMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) { DragMove(); }
+        }
+        
+        
     }
 }
