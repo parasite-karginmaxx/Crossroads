@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Crossroads"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000" MinHeight="600" MinWidth="1000"
-        Background="White" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="White" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow"
         ResizeMode="CanResize">
     <Window.DataContext>
         <vm:MainWindowVM/>
@@ -180,20 +180,18 @@
                 </Border>
             </Grid>
         </ControlTemplate>
+        
+        
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Frame Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurPage}"/>
 
         <!--Верхнее меню-->
-        <Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
+        <!--<Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
             <Border BorderThickness="1" BorderBrush="Black" Background="Transparent" MouseDown="BorderMouseDown">
                 <StackPanel Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="_"/>
@@ -201,7 +199,7 @@
                     <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="X" Command="{Binding CloseApp}"/>
                 </StackPanel>
             </Border>
-        </Grid>
+        </Grid>-->
         <!--Боковое меню-->
         <Grid Name="SlideMenu" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
             <Grid.Style>
@@ -214,7 +212,7 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <Border BorderThickness="0" Background="CornflowerBlue" Opacity="1"/>
+            <Border BorderThickness="1" Background="CornflowerBlue" Opacity="1"/>
             <Border BorderThickness="1,0,1,1" BorderBrush="Black"/>
             <!--Кнопки боковой панели-->
             <StackPanel Orientation="Vertical">

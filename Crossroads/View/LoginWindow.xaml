@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crossroads.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="500" Width="370" WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize" Background="CornflowerBlue">
+        Title="LoginWindow" Height="500" Width="350" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" Background="Transparent" WindowStyle="None" MouseDown="BorderMouseDown" >
     <Window.Resources>
         <!--Создание шаблона кнопок-->
         <ControlTemplate x:Key="LoginBtn" TargetType="Button">
             <Grid Name="Btn" Height="auto" Margin="3,0">
-                <Border Margin="0,0,0,5" >
+                <Border Margin="0,0,0,5" CornerRadius="10">
                     <Grid >
                         <!--Основной стиль текста кнопок-->
-                        <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="16">
+                        <Label Content="{TemplateBinding Content}" Background="Transparent">
                             <Label.Style>
                                 <Style TargetType="Label">
-                                    <Setter Property="Foreground" Value="#698AFF"/>
+                                    <Setter Property="Foreground" Value="CornflowerBlue"/>
                                     <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="FontSize" Value="16"/>
                                     <Style.Triggers>
                                         <!--Цвет при наведении мыши-->
                                         <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
@@ -30,11 +31,13 @@
                                             Path= IsPressed}" Value="True">
                                             <Setter Property="Foreground" Value="DarkBlue"/>
                                             <Setter Property="Margin"  Value="0,1,0,1"/>
+                                            <Setter Property="FontSize" Value="16.5"/>
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </Label.Style>
                         </Label>
+                        
                     </Grid>
                     <!--Визуальные эффекты кнопки-->
                     <Border.Style>
@@ -72,10 +75,9 @@
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="Background" Value="White"/>
-                            <Setter Property="CornerRadius" Value="5"/>
+                            <Setter Property="CornerRadius" Value="10"/>
                             <Setter Property="Padding" Value="1"/>
-                            <Setter Property="OverridesDefaultStyle" Value="True" />
-                            <Setter Property="AllowDrop" Value="true" />
+                            <Setter Property="DocumentViewerBase.IsTabStop" Value="True"/>
                             <Style.Triggers>
                                 <!--Создание визуальн. заполнения кнопки-->
                                 <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Txt}" Value="True">
@@ -100,17 +102,25 @@
             </Grid>
         </ControlTemplate>
     </Window.Resources>
-    <DockPanel Margin="50">
-        <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center">
-            <TextBlock Text="Введите логин"/>
-            <TextBox Template="{StaticResource ResourceKey=LoginTxtBox}"/>
-            <TextBlock Text="Введите пароль"/>
-            <TextBox Template="{StaticResource ResourceKey=LoginTxtBox}"/>
-        </StackPanel>
-        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <Button Template="{StaticResource ResourceKey=LoginBtn}" Content="ВОЙТИ"/>
-            <Button Template="{StaticResource ResourceKey=LoginBtn}" Content="ЗАРЕГИСТРИРОВАТЬСЯ"/>
-            <Button Template="{StaticResource ResourceKey=LoginBtn}" Content="ОТМЕНА"/>
-        </StackPanel>
-    </DockPanel>
+    <Grid >
+        <Border>
+                <DockPanel Margin="50">
+                    <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center">
+                        <TextBlock Text="Введите логин" FontSize="16" Foreground="White" TextAlignment="Center"/>
+                        <TextBox Template="{StaticResource ResourceKey=LoginTxtBox}" />
+                        <TextBlock Text="Введите пароль" FontSize="16" Foreground="White" TextAlignment="Center"/>
+                        <TextBox Template="{StaticResource ResourceKey=LoginTxtBox}"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <Button Template="{StaticResource ResourceKey=LoginBtn}" Content="ВОЙТИ"/>
+                        <Button Template="{StaticResource ResourceKey=LoginBtn}" Content="ЗАРЕГИСТРИРОВАТЬСЯ"/>
+                        <Button Template="{StaticResource ResourceKey=LoginBtn}" Content="ОТМЕНА" Click="CancelLoginWindow"/>
+                    </StackPanel>
+                </DockPanel>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" Color="White" ShadowDepth="0" Opacity="0.9"/>
+            </Border.Effect>
+        </Border>
+    </Grid>
+    
 </Window>
