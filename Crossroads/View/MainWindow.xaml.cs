@@ -23,5 +23,9 @@ namespace Crossroads.View
             if (e.LeftButton == MouseButtonState.Pressed) { DragMove(); }
         }
 
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }

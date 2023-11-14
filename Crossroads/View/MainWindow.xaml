@@ -21,7 +21,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Frame Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurPage}"/>
+        <Frame Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurPage}" Navigated="Frame_Navigated"/>
 
         <!--Верхнее меню-->
         <!--<Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
