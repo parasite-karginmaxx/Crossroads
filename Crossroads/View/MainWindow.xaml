@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Crossroads.ViewModel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Crossroads"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000" MinHeight="600" MinWidth="1000"
@@ -13,174 +14,6 @@
         <vm:MainWindowVM/>
     </Window.DataContext>
     <Window.Resources>
-        <!--Шаблон оформления кнопок в шапке-->
-        <ControlTemplate x:Key="TopMenuButtons" TargetType="Button">
-            <Grid Name="Btn" Height="Auto" Margin="20,0,0,0">
-                <Border>
-                    <Grid>
-                        <!--Основной стиль взаимодействия-->
-                        <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="16"
-                               VerticalAlignment="Center">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Setter Property="Foreground" Value="#698AFF"/>
-                                    <Style.Triggers>
-                                        <!--Цвет при наведении мыши-->
-                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
-                                                     Value="True">
-                                            <Setter Property="Foreground" Value="Blue"/>
-                                        </DataTrigger>
-                                        <!--Цвет при нажатии текста кнопки-->
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsPressed}" Value="True">
-                                            <Setter Property="Foreground" Value="Blue"/>
-                                        </DataTrigger>
-                                        <!--Выделение текста в фокусе-->
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsFocused}" Value="True">
-                                            <Setter Property="Foreground" Value="Blue"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
-                        <!--Стиль при выбранной кнопке-->
-                        <Label Content="{TemplateBinding Content}" Margin="-3,0,0,0"
-                           Background="Transparent" VerticalAlignment="Center" FontSize="16" FontWeight="Bold">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Setter Property="Foreground" Value="#698AFF"/>
-                                    <Setter Property="Visibility" Value="Hidden"/>
-                                    <Style.Triggers>
-                                        <!--Создания глоу эффекта-->
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsFocused}" Value="True">
-                                            <DataTrigger.Setters>
-                                                <Setter Property="Effect">
-                                                    <Setter.Value>
-                                                        <BlurEffect Radius="35"/>
-                                                    </Setter.Value>
-                                                </Setter>
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger.Setters>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
-                    </Grid>
-                    <!--Визуальный эффект физич. нажатия кнопки-->
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Style.Triggers>
-                                <!--Создание эффекта физич. нажатия кнопки-->
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsPressed}" Value="True">
-                                    <Setter Property="Margin"  Value="0,2,0,0"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-            </Grid>
-        </ControlTemplate>
-        <!--Шаблон оформления кнопок боковой панели-->
-        <ControlTemplate x:Key="SlideMenuButtons" TargetType="Button">
-            <Grid Name="Btn" Height="40">
-                <!--Заливка области, когда мышь на кнопке-->
-                <Border Name="MouseOverBorder" Background="White">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="Opacity" Value="0"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}" Value="True">
-                                    <Setter Property="Opacity" Value="0.1"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-                <!--Заливка области, когда кнопка выбрана-->
-                <Border Name="IsSelectedBorder" Background="White">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="Opacity" Value="0"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsFocused}" Value="True">
-                                    <Setter Property="Opacity" Value="1"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-                <Border>
-                    <StackPanel Orientation="Horizontal">
-                        <!--Оформление расположения иконок-->
-                        <Image Source="{DynamicResource ResourceKey=Img}" 
-                               VerticalAlignment="Center" HorizontalAlignment="Left" 
-                               Height="30" Width="30" Stretch="Fill" Margin="15,0,0,0"/>
-                        <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="18"
-                               VerticalAlignment="Center" Margin="10,0,10,0">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Setter Property="Foreground" Value="White"/>
-                                    <Style.Triggers>
-                                        <!--Выделение текста при наведении-->
-                                        <!--<DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
-                                                     Value="True">
-                                            <Setter Property="Foreground" Value="White"/>
-                                        </DataTrigger>-->
-                                        <!--Выделение текста в фокусе-->
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsFocused}" Value="True">
-                                            <Setter Property="Foreground" Value="CornflowerBlue"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
-                    </StackPanel>
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Style.Triggers>
-                                <!--Создание эффекта физич. нажатия кнопки-->
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsPressed}" Value="True">
-                                    <Setter Property="Margin"  Value="0,2,0,0"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-                
-                <!--Создание "закладки" справа-->
-                <Border Name="IsSelectedBorder2" Background="Transparent">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="Visibility" Value="Hidden"/>
-                            <Setter Property="BorderThickness" Value="4,0,0,0"/>
-                            <Setter Property="BorderBrush" Value="CornflowerBlue"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsFocused}" Value="True">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-            </Grid>
-        </ControlTemplate>
-        
         
     </Window.Resources>
     <Grid>
@@ -216,36 +49,36 @@
             <Border BorderThickness="1,0,1,1" BorderBrush="Black"/>
             <!--Кнопки боковой панели-->
             <StackPanel Orientation="Vertical">
-                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="ПРОФИЛЬ"
+                <Button  Content="ПРОФИЛЬ"
                         Command="{Binding OpenProfilePage}">
                     <Button.Resources>
                         <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
                     </Button.Resources>
                 </Button>
-                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="ГЛАВНАЯ"
+                <Button  Content="ГЛАВНАЯ"
                         Command="{Binding OpenHomePage}">
                     <Button.Resources>
                         <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
                     </Button.Resources>
                 </Button>
-                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="КЛИЕНТЫ"
+                <Button  Content="КЛИЕНТЫ"
                         Command="{Binding OpenClientsPage}">
                     <Button.Resources>
                         <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
                     </Button.Resources>
                 </Button>
-                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="НОМЕРА"
+                <Button  Content="НОМЕРА"
                         Command="{Binding OpenRoomsPage}">
                     <Button.Resources>
                         <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
                     </Button.Resources>
                 </Button>
-                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="СОТРУДНИКИ">
+                <Button  Content="СОТРУДНИКИ">
                     <Button.Resources>
                         <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
                     </Button.Resources>
                 </Button>
-                <Button Template="{StaticResource ResourceKey=SlideMenuButtons}" Content="ПОДДЕРЖКА"
+                <Button  Content="ПОДДЕРЖКА"
                         Command="{Binding OpenSupportPage}">
                     <Button.Resources>
                         <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
