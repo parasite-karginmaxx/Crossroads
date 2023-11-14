@@ -20,9 +20,35 @@ namespace Crossroads.View
     /// </summary>
     public partial class ProfilePage : Page
     {
+        Window loginWindow = new LoginWindow();
         public ProfilePage()
         {
             InitializeComponent();
         }
+
+        
+
+
+
+
+        private void OpenLoginWindow(object sender, RoutedEventArgs e)
+        {
+            
+            // проверяем, открыто ли второе окно
+            if (!loginWindow.IsVisible)
+            {
+                
+
+                // если окно не открыто, открываем его
+                loginWindow.Show();
+            }
+            else
+            {
+                // если окно открыто, активируем его
+                loginWindow.Activate();
+            }
+        }
+        
     }
 }
+

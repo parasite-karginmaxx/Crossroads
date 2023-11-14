@@ -23,5 +23,15 @@ namespace Crossroads.View
         {
             InitializeComponent();
         }
+
+        private void BorderMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) { DragMove(); }
+        }
+
+        private void CancelLoginWindow(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
     }
 }

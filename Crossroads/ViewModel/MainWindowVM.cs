@@ -53,7 +53,6 @@ namespace Crossroads.ViewModel
         {
             get { return new RelayCommand(() => Application.Current.Shutdown()); }
         }
-        
         #endregion
     }
 }

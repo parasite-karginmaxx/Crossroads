@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossroads", "Crossroads\Crossroads.csproj", "{344591BA-25C6-4944-92C2-07666DC34954}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossroads.Infrastructure", "Crossroads.Infrastructure\Crossroads.Infrastructure.csproj", "{080FCBB7-41E3-4F00-88A9-9899572C0DA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{344591BA-25C6-4944-92C2-07666DC34954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{344591BA-25C6-4944-92C2-07666DC34954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{344591BA-25C6-4944-92C2-07666DC34954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080FCBB7-41E3-4F00-88A9-9899572C0DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080FCBB7-41E3-4F00-88A9-9899572C0DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080FCBB7-41E3-4F00-88A9-9899572C0DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080FCBB7-41E3-4F00-88A9-9899572C0DA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

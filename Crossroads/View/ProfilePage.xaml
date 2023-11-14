@@ -10,7 +10,7 @@
 
     <Grid>
 
-        <Button Content="Авторизоваться" Command="{Binding OpenLoginWindow}"/>
+        <Button Content="Авторизоваться" Click="OpenLoginWindow"/>
 
     </Grid>
 </Page>

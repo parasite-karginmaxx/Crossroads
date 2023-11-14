@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Crossroads.View
@@ -9,6 +10,9 @@ namespace Crossroads.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -18,7 +22,10 @@ namespace Crossroads.View
         {
             if (e.LeftButton == MouseButtonState.Pressed) { DragMove(); }
         }
-        
-        
+
+        private void Frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }
