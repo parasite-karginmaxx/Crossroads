@@ -16,15 +16,17 @@
     <Window.Resources>
         
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Frame Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurPage}" Navigated="Frame_Navigated"/>
+    <Grid Background="LightGray">
+        <Border Margin="20" Background="CornflowerBlue" CornerRadius="20" >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurPage}" Navigated="Frame_Navigated"/>
 
-        <!--Верхнее меню-->
-        <!--<Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
+                <!--Верхнее меню-->
+                <!--<Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
             <Border BorderThickness="1" BorderBrush="Black" Background="Transparent" MouseDown="BorderMouseDown">
                 <StackPanel Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="_"/>
@@ -33,83 +35,90 @@
                 </StackPanel>
             </Border>
         </Grid>-->
-        <!--Боковое меню-->
-        <Grid Name="SlideMenu" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="Width" Value="Auto"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=IsChecked, ElementName=OpenCloseSlideMenuBtn}" Value="True">
-                            <Setter Property="Width" Value="60"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-            <Border BorderThickness="1" Background="CornflowerBlue" Opacity="1"/>
-            <Border BorderThickness="1,0,1,1" BorderBrush="Black"/>
-            <!--Кнопки боковой панели-->
-            <StackPanel Orientation="Vertical">
-                <Button  Content="ПРОФИЛЬ"
-                        Command="{Binding OpenProfilePage}">
-                    <Button.Resources>
-                        <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
-                    </Button.Resources>
-                </Button>
-                <Button  Content="ГЛАВНАЯ"
-                        Command="{Binding OpenHomePage}">
-                    <Button.Resources>
-                        <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
-                    </Button.Resources>
-                </Button>
-                <Button  Content="КЛИЕНТЫ"
-                        Command="{Binding OpenClientsPage}">
-                    <Button.Resources>
-                        <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
-                    </Button.Resources>
-                </Button>
-                <Button  Content="НОМЕРА"
-                        Command="{Binding OpenRoomsPage}">
-                    <Button.Resources>
-                        <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
-                    </Button.Resources>
-                </Button>
-                <Button  Content="СОТРУДНИКИ">
-                    <Button.Resources>
-                        <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
-                    </Button.Resources>
-                </Button>
-                <Button  Content="ПОДДЕРЖКА"
-                        Command="{Binding OpenSupportPage}">
-                    <Button.Resources>
-                        <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
-                    </Button.Resources>
-                </Button>
-            </StackPanel>
-            <!--Создание кнопки развертывания бокового меню-->
-            <ToggleButton x:Name="OpenCloseSlideMenuBtn" Height="20" Width="20" Margin="20,0,0,20"
+                
+                <!--Боковое меню-->
+                <Grid Name="SlideMenu" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Width" Value="Auto"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsChecked, ElementName=OpenCloseSlideMenuBtn}" Value="True">
+                                    <Setter Property="Width" Value="60"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <Border Background="CornflowerBlue" CornerRadius="20">
+                        <!--Кнопки боковой панели-->
+                        <StackPanel Orientation="Vertical">
+                            <Button  Content="ПРОФИЛЬ" Command="{Binding OpenProfilePage}"
+                                     Style="{StaticResource MaterialDesignFlatButton}" Foreground="White">
+                                <Button.Resources>
+                                    <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
+                                </Button.Resources>
+                            </Button>
+                            <Button  Content="ГЛАВНАЯ" Command="{Binding OpenHomePage}"
+                                     Style="{StaticResource MaterialDesignFlatButton}" Foreground="White">
+                                <Button.Resources>
+                                    <ImageSource x:Key="Img">res/icons/icon.bmp</ImageSource>
+                                </Button.Resources>
+                            </Button>
+                            <Button  Content="КЛИЕНТЫ" Command="{Binding OpenClientsPage}"
+                                     Style="{StaticResource MaterialDesignFlatButton}" Foreground="White">
+                                <Button.Resources>
+                                    <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
+                                </Button.Resources>
+                            </Button>
+                            <Button  Content="НОМЕРА" Command="{Binding OpenRoomsPage}"
+                                     Style="{StaticResource MaterialDesignFlatButton}" Foreground="White">
+                                <Button.Resources>
+                                    <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
+                                </Button.Resources>
+                            </Button>
+                            <Button  Content="СОТРУДНИКИ"
+                                     Style="{StaticResource MaterialDesignFlatButton}" Foreground="White">
+                                <Button.Resources>
+                                    <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
+                                </Button.Resources>
+                            </Button>
+                            <Button  Content="ПОДДЕРЖКА" Command="{Binding OpenSupportPage}"
+                                     Style="{StaticResource MaterialDesignFlatButton}" Foreground="White">
+                                <Button.Resources>
+                                    <ImageSource x:Key="Img">res/icons/icon2.bmp</ImageSource>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </Border>
+                    <!--Создание кнопки развертывания бокового меню-->
+                    <ToggleButton x:Name="OpenCloseSlideMenuBtn" Height="20" Width="20" Margin="20,0,0,20"
                           VerticalAlignment="Bottom" HorizontalAlignment="Left"
                           Focusable="False">
-                <!--Создание стиля для кнопки развертывания бокового меню-->
-                <ToggleButton.Template>
-                    <ControlTemplate>
-                        <Image>
-                            <Image.Style>
-                                <!--Смена иконки кнопки в зависимости от положения бокового меню-->
-                                <Style TargetType="Image">
-                                    <Setter Property="Source" Value="res/icons/close.bmp"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                        <!--Создание стиля для кнопки развертывания бокового меню-->
+                        <ToggleButton.Template>
+                            <ControlTemplate>
+                                <Image>
+                                    <Image.Style>
+                                        <!--Смена иконки кнопки в зависимости от положения бокового меню-->
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="res/icons/close.bmp"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
                                             Mode=FindAncestor, AncestorType={x:Type ToggleButton}},
                                             Path= IsChecked}" Value="True">
-                                            <Setter Property="Source" Value="res/icons/open.bmp"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Image.Style>
-                        </Image>
-                    </ControlTemplate>
-                </ToggleButton.Template>
-            </ToggleButton>
-        </Grid>
+                                                    <Setter Property="Source" Value="res/icons/open.bmp"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
+                </Grid>
+            </Grid>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0"/>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>
