@@ -11,7 +11,7 @@
     <Grid>
         <Border Margin="0" Background="White" CornerRadius="0 20 20 0">
             <DockPanel>
-                <Grid DockPanel.Dock="Top" Margin="10">
+                <Grid DockPanel.Dock="Top" Margin="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
@@ -19,23 +19,23 @@
                     <Border Grid.Column="0">
                         <Button Content="Г" Style="{StaticResource MaterialDesignFloatingActionButton}"/>
                     </Border>
-                    <StackPanel Grid.Column="1">
+                    <StackPanel Grid.Column="1" Margin="5">
                         <TextBlock>Фамилия Имя Отчество</TextBlock>
                         <TextBlock>Должность</TextBlock>
                     </StackPanel>
                 </Grid>
-                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5">
                     <Button Content="График"/>
                     <Button Content="График"/>
                     <Button Content="График"/>
                     <Button Content="График"/>
                 </StackPanel>
-                <Grid DockPanel.Dock="Top" Height="200" Margin="10" Background="CornflowerBlue" Opacity=".5">
+                <Grid DockPanel.Dock="Top" Height="300" Margin="5" Background="CornflowerBlue" Opacity=".5">
                     <Border>
                         
                     </Border>
                 </Grid>
-                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                     <Button Content="Авторизоваться" Click="OpenLoginWindow"/>
                     <Button Content="Выйти" Style="{StaticResource MaterialDesignFlatAccentButton}"/>
                 </StackPanel>
