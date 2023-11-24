@@ -13,29 +13,14 @@
     <Window.DataContext>
         <vm:MainWindowVM/>
     </Window.DataContext>
-    <Window.Resources>
-        
-    </Window.Resources>
-    <Grid Background="LightGray">
-        <Border Margin="20" Background="CornflowerBlue" CornerRadius="20" >
+    <Grid Background="AliceBlue">
+        <Border Margin="0" Background="White" >
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurPage}" Navigated="Frame_Navigated"/>
-
-                <!--Верхнее меню-->
-                <!--<Grid Name="TopMenu" Grid.Row="0" Grid.ColumnSpan="2">
-            <Border BorderThickness="1" BorderBrush="Black" Background="Transparent" MouseDown="BorderMouseDown">
-                <StackPanel Margin="0,0,20,0" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="_"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="[ ]"/>
-                    <Button Template="{StaticResource ResourceKey=TopMenuButtons}" Content="X" Command="{Binding CloseApp}"/>
-                </StackPanel>
-            </Border>
-        </Grid>-->
-                
                 <!--Боковое меню-->
                 <Grid Name="SlideMenu" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
                     <Grid.Style>
@@ -48,7 +33,7 @@
                             </Style.Triggers>
                         </Style>
                     </Grid.Style>
-                    <Border Background="CornflowerBlue" CornerRadius="20">
+                    <Border Background="CornflowerBlue" CornerRadius="0 30 30 0">
                         <!--Кнопки боковой панели-->
                         <StackPanel Orientation="Vertical">
                             <Button  Content="ПРОФИЛЬ" Command="{Binding OpenProfilePage}"
@@ -117,7 +102,7 @@
                 </Grid>
             </Grid>
             <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="50" Color="Black" ShadowDepth="0"/>
             </Border.Effect>
         </Border>
     </Grid>

@@ -65,6 +65,8 @@
     <Compile Include="Booking.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Database\IBaseRepository.cs" />
+    <Compile Include="Database\UserRepository.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="HotelComplex.cs" />
     <Compile Include="Position.cs" />

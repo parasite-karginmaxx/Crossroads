@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossroads", "Crossroads\Crossroads.csproj", "{344591BA-25C6-4944-92C2-07666DC34954}"
+	ProjectSection(ProjectDependencies) = postProject
+		{080FCBB7-41E3-4F00-88A9-9899572C0DA5} = {080FCBB7-41E3-4F00-88A9-9899572C0DA5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossroads.Infrastructure", "Crossroads.Infrastructure\Crossroads.Infrastructure.csproj", "{080FCBB7-41E3-4F00-88A9-9899572C0DA5}"
 EndProject

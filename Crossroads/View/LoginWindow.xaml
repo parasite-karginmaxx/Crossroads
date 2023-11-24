@@ -8,102 +8,7 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="520" Width="350" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize" Background="White" WindowStyle="None" MouseDown="BorderMouseDown" >
-    <Window.Resources>
-        <!--Создание шаблона кнопок
-         <ControlTemplate x:Key="LoginBtn" TargetType="Button">
-            <Grid Name="Btn" Height="auto" Margin="3,0">
-                <Border Margin="0,0,0,5" CornerRadius="10">
-                    <Grid >
-                        Основной стиль текста кнопок
-                        <Label Content="{TemplateBinding Content}" Background="Transparent">
-                            <Label.Style>
-                                <Style TargetType="Label">
-                                    <Setter Property="Foreground" Value="CornflowerBlue"/>
-                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                    <Setter Property="FontSize" Value="16"/>
-                                    <Style.Triggers>
-                                        Цвет при наведении мыши
-                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
-                                                     Value="True">
-                                            <Setter Property="Foreground" Value="Blue"/>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsPressed}" Value="True">
-                                            <Setter Property="Foreground" Value="DarkBlue"/>
-                                            <Setter Property="Margin"  Value="0,1,0,1"/>
-                                            <Setter Property="FontSize" Value="16.5"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Label.Style>
-                        </Label>
-                        
-                    </Grid>
-                    Визуальные эффекты кнопки
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="Opacity" Value="1"/>
-                            <Setter Property="Background" Value="White"/>
-                            <Style.Triggers>
-                                Создание эффекта физич. нажатия кнопки
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsPressed}" Value="True">
-                                    <Setter Property="Margin"  Value="0,2,0,0"/>
-                                    <Setter Property="Opacity" Value="0.7"/>
-                                </DataTrigger>
-                                Создание визуальн. заполнения кнопки
-                                <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-            </Grid>
-        </ControlTemplate>--> 
-        <!--<ControlTemplate x:Key="LoginTxtBox" TargetType="TextBox">
-            <Grid Name="Txt">
-                <Border Margin="0,0,0,5">
-                    <Label Content="{TemplateBinding Text}" Background="Transparent">
-                        <Label.Style>
-                            <Style TargetType="Label">
-                                <Setter Property="FontSize" Value="16"/>
-                            </Style>
-                        </Label.Style>
-                    </Label>
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="Background" Value="White"/>
-                            <Setter Property="CornerRadius" Value="10"/>
-                            <Setter Property="Padding" Value="1"/>
-                            <Setter Property="DocumentViewerBase.IsTabStop" Value="True"/>
-                            <Style.Triggers>
-                                Создание визуальн. заполнения кнопки
-                                <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Txt}" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                    <Setter Property="Cursor" Value="IBeam"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type Button}},
-                                            Path= IsPressed}" Value="True">
-                                    <Setter Property="Opacity" Value="0.6"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource
-                                            Mode=FindAncestor, AncestorType={x:Type TextBox}},
-                                            Path= IsFocused}" Value="True">
-                                    <Setter Property="Opacity" Value="0.6"/>
-                                    <Setter Property="Cursor" Value="IBeam"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
-            </Grid>
-        </ControlTemplate>-->
-    </Window.Resources>
-    <Grid Background="LightGray">
+    <Grid Background="CornflowerBlue">
         <Border Margin="25" Background="White" Padding="20" CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top">
@@ -122,7 +27,7 @@
                 </StackPanel>
             </DockPanel>
             <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="50" Color="Black" ShadowDepth="0"/>
             </Border.Effect>
         </Border>
     </Grid>

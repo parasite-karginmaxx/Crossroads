@@ -8,8 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfilePage">
 
-    <Grid>
-        <Border Margin="0" Background="White" CornerRadius="0 20 20 0">
+    <Grid Margin="5">
+        <Border Margin="0" >
             <DockPanel>
                 <Grid DockPanel.Dock="Top" Margin="10">
                     <Grid.ColumnDefinitions>
@@ -25,19 +25,19 @@
                     </StackPanel>
                 </Grid>
                 <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10">
-                    <Button Content="График"/>
-                    <Button Content="График"/>
-                    <Button Content="График"/>
-                    <Button Content="График"/>
+                    <Button Content="График" Margin="0 0 5 0"/>
+                    <Button Content="График" Margin="0 0 5 0"/>
+                    <Button Content="График" Margin="0 0 5 0"/>
+                    <Button Content="График" Margin="0 0 5 0"/>
                 </StackPanel>
-                <Grid DockPanel.Dock="Top" Height="200" Margin="10" Background="CornflowerBlue" Opacity=".5">
+                <Grid DockPanel.Dock="Top" Height="300" Margin="10" Background="CornflowerBlue" Opacity=".5">
                     <Border>
                         
                     </Border>
                 </Grid>
-                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-                    <Button Content="Авторизоваться" Click="OpenLoginWindow"/>
-                    <Button Content="Выйти" Style="{StaticResource MaterialDesignFlatAccentButton}"/>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Button Content="АВТОРИЗОВАТЬСЯ" Click="OpenLoginWindow" Margin="0 0 5 0"/>
+                    <Button Content="ВЫЙТИ" Style="{StaticResource MaterialDesignFlatAccentButton}" Margin="0 0 5 0"/>
                 </StackPanel>
             </DockPanel>
         </Border>
