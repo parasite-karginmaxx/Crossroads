@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,13 +21,13 @@ namespace Crossroads.View
     /// </summary>
     public partial class ProfilePage : Page
     {
+        
         Window loginWindow = new LoginWindow();
         public ProfilePage()
         {
             InitializeComponent();
-        }
 
-        
+        }
 
 
 
